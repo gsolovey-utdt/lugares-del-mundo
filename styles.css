@@ -1,0 +1,1874 @@
+:root {
+  --bg-top: #1a6a9f;
+  --bg-bottom: #0d4a75;
+  --ink: #263547;
+  --primary: #ff8c42;
+  --primary-dark: #e26f2a;
+  --mint: #39c0a7;
+  --sky: #4da8ff;
+  --danger: #ff5f79;
+  --card: rgba(255, 255, 255, 0.92);
+  --shadow: 0 14px 38px rgba(38, 53, 71, 0.18);
+  --radius-xl: 26px;
+  --radius-lg: 18px;
+  --ink-black: #1a1a1a;
+  --sticker-shadow: 3px 3px 0 var(--ink-black);
+  --font-hand: "Patrick Hand", "Trebuchet MS", "Comic Sans MS", cursive;
+  --font-display: "Bangers", "Cooper Black", "Trebuchet MS", cursive;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: var(--font-hand);
+  color: var(--ink);
+  min-height: 100vh;
+  background-color: #1a6a9f;
+  background-image:
+    radial-gradient(circle 2px at 0 0, rgba(255,255,255,0.22) 1px, transparent 2px),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 59px,
+      rgba(255, 255, 255, 0.15) 60px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 59px,
+      rgba(255, 255, 255, 0.15) 60px
+    ),
+    radial-gradient(ellipse 140% 120% at 50% 40%, #2d8fc5 0%, #1a6a9f 40%, #0a3258 100%);
+  background-size: 60px 60px, auto, auto, 100% 100%;
+  background-position: 0 0, 0 0, 0 0, 0 0;
+  display: grid;
+  place-items: center;
+  overflow-x: hidden;
+  font-size: 1.05rem;
+}
+
+.bg-blob {
+  position: fixed;
+  filter: blur(6px);
+  opacity: 0.72;
+  z-index: 0;
+}
+
+.blob-a {
+  width: 380px;
+  height: 300px;
+  background: #c87941;
+  border-radius: 42% 58% 38% 62% / 50% 44% 56% 50%;
+  left: -90px;
+  top: 30px;
+}
+
+.blob-b {
+  width: 420px;
+  height: 320px;
+  background: #5a8f4e;
+  border-radius: 58% 42% 62% 38% / 44% 56% 44% 56%;
+  right: -120px;
+  top: 150px;
+}
+
+.blob-c {
+  width: 280px;
+  height: 250px;
+  background: #c89c32;
+  border-radius: 48% 52% 55% 45% / 52% 48% 52% 48%;
+  left: 18%;
+  bottom: -80px;
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+  width: min(980px, 94vw);
+  padding: 22px 0 28px;
+}
+
+.screen {
+  display: none;
+}
+
+.screen.is-active {
+  display: block;
+  /* Sin animación de opacidad: al cambiar de pantalla la caja debe
+     mantenerse visible (mismo tamaño/posición) sin "pestañear" a
+     transparente. Ver decisión 2026-06. */
+}
+
+.card {
+  background: var(--card);
+  border: 3px solid rgba(255, 255, 255, 0.75);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+
+.start-card,
+.feedback-card,
+.final-card {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 32px 28px;
+}
+
+.start-card h1,
+.final-card h2 {
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  color: var(--ink-black);
+  text-shadow: 2px 2px 0 rgba(255, 140, 66, 0.35);
+  margin: 10px 0 14px;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  line-height: 1.05;
+}
+
+.lead {
+  max-width: 640px;
+  margin: 0 auto 22px;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+/* === CARRUSEL DE INICIO === */
+.start-carousel {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 18px;
+  height: 170px;
+  flex-shrink: 0;
+}
+
+.start-carousel-slot {
+  flex: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid var(--ink-black);
+  box-shadow: var(--sticker-shadow);
+  transition: opacity 0.6s ease;
+}
+
+.start-carousel-slot.fading {
+  opacity: 0;
+}
+
+.start-carousel-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Difficulty picker compacto (en pantalla de inicio con carrusel) */
+.difficulty-compact .difficulty-options {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 320px;
+  margin: 0 auto 12px;
+  gap: 8px;
+}
+
+.difficulty-compact .difficulty-option {
+  padding: 6px 10px;
+  text-align: center;
+}
+
+.difficulty-compact .difficulty-name {
+  font-size: 1.1rem;
+}
+
+.difficulty-picker h2 {
+  margin: 10px 0 12px;
+  font-size: 1.3rem;
+}
+
+.difficulty-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.difficulty-option {
+  cursor: pointer;
+  position: relative;
+  text-align: left;
+  background: #fff8e7;
+  border: 3px solid var(--ink-black);
+  border-radius: var(--radius-lg);
+  padding: 12px 12px 10px;
+  box-shadow: var(--sticker-shadow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    background 0.18s ease;
+}
+
+.difficulty-option:hover {
+  transform: translate(-1px, -2px);
+  box-shadow: 4px 5px 0 var(--ink-black);
+}
+
+.difficulty-option.selected {
+  background: #ffe1b3;
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink-black);
+}
+
+.difficulty-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.difficulty-name {
+  display: block;
+  font-family: var(--font-hand);
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  text-align: center;
+  color: var(--ink-black);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn {
+  border: 3px solid var(--ink-black);
+  border-radius: 14px;
+  cursor: pointer;
+  font-family: var(--font-hand);
+  font-weight: 400;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: var(--sticker-shadow);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+
+.btn:hover {
+  transform: translate(-1px, -2px);
+  box-shadow: 4px 5px 0 var(--ink-black);
+}
+
+.btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink-black);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--ink-black);
+  /* dentro de cards flex-column, evitar que el boton se estire al
+     ancho del container: tomar el ancho de la frase y centrarse. */
+  align-self: center;
+  width: auto;
+}
+
+.btn-primary:hover {
+  background: #ffa45c;
+}
+
+.btn-xl {
+  padding: 14px 28px;
+  font-size: 1.45rem;
+}
+
+.start-card #start-game-btn {
+  margin-top: 10px;
+}
+
+.btn-ghost {
+  background: #fff8e7;
+  color: var(--ink-black);
+  padding: 10px 16px;
+  font-size: 1.05rem;
+}
+
+.game-card {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+.game-header {
+  display: grid;
+  grid-template-areas:
+    "level .     lives"
+    "sound score restart";
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: auto auto;
+  gap: 6px 8px;
+  align-items: center;
+}
+
+#level-pill  { grid-area: level; justify-self: start; }
+#score-label { grid-area: score; justify-self: center; }
+#lives-label { grid-area: lives; justify-content: flex-end; justify-self: end; }
+#sound-btn   { grid-area: sound; justify-self: start; }
+#restart-btn { grid-area: restart; justify-self: end; }
+
+.lives-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 12px;
+  background: #ffd5dc;
+  color: var(--ink-black);
+  border: 3px solid var(--ink-black);
+  box-shadow: var(--sticker-shadow);
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.level-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 12px;
+  background: #c7f1e6;
+  color: var(--ink-black);
+  border: 3px solid var(--ink-black);
+  box-shadow: var(--sticker-shadow);
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.score-label {
+  display: inline-block;
+  background: #fdedb8;
+  color: var(--ink-black);
+  border: 3px solid var(--ink-black);
+  box-shadow: var(--sticker-shadow);
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.meter-wrap {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.meter {
+  height: 15px;
+  border-radius: 999px;
+  background: #e5eef7;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--sky), #76d7ff);
+  transition: width 0.32s ease;
+}
+
+.food-zone {
+  margin: 18px auto 8px;
+  text-align: center;
+}
+
+.food-image-wrap {
+  width: min(370px, 84vw);
+  aspect-ratio: 16 / 11;
+  margin: 0 auto;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 3px solid var(--ink-black);
+  box-shadow: var(--sticker-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+#food-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.food-placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(140deg, #f7fcff, #eef5ff);
+}
+
+.food-placeholder span {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: "Cooper Black", "Trebuchet MS", "Comic Sans MS", cursive;
+  font-size: 2rem;
+  color: #38607f;
+  background: #d7eaff;
+}
+
+.food-name {
+  margin: 14px 0 4px;
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  font-size: clamp(2.1rem, 5.6vw, 2.8rem);
+  color: var(--ink-black);
+  text-shadow: 2px 2px 0 rgba(255, 140, 66, 0.35);
+}
+
+.question-text {
+  text-align: center;
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin: 6px 0 14px;
+  color: var(--ink-black);
+}
+
+/* Slot que aloja la pregunta y, tras responder, el cartel ✓/✗.
+   Ambos se apilan en la misma celda (grid-area 1/1) y el min-height
+   reserva el alto del cartel para que no haya salto de layout. */
+.question-slot {
+  display: grid;
+  place-items: center;
+  min-height: 42px;
+  margin: 6px 0 14px;
+}
+
+.question-slot > * {
+  grid-area: 1 / 1;
+}
+
+.question-slot .question-text {
+  margin: 0;
+}
+
+#answer-flash {
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Mientras el cartel está visible, ocultar la pregunta de fondo
+   (sigue ocupando su lugar para no alterar el alto del slot). */
+#answer-flash:not([hidden]) ~ .question-text {
+  visibility: hidden;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.option-btn {
+  min-height: 68px;
+  border-radius: 14px;
+  border: 3px solid var(--ink-black);
+  background: #fff8e7;
+  font-family: var(--font-hand);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--ink-black);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 10px 14px;
+  cursor: pointer;
+  box-shadow: var(--sticker-shadow);
+  transition: transform 0.16s ease, box-shadow 0.16s ease,
+    background 0.16s ease;
+}
+
+.option-btn:hover:not(:disabled) {
+  transform: translate(-1px, -2px);
+  background: #ffeec8;
+  box-shadow: 4px 5px 0 var(--ink-black);
+}
+
+.option-btn:active:not(:disabled) {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--ink-black);
+}
+
+.option-btn:disabled {
+  opacity: 0.68;
+  cursor: not-allowed;
+}
+
+.feedback-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  border: 2px solid var(--ink-black);
+  padding: 5px 13px 5px 10px;
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  margin: 0 auto 16px;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  box-shadow: 2px 2px 0 var(--ink-black);
+  animation: pop-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center;
+}
+
+.feedback-badge::before {
+  display: inline-grid;
+  place-items: center;
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 50%;
+  border: 2px solid var(--ink-black);
+  font-family: var(--font-hand);
+  font-size: 1.1em;
+  font-weight: 700;
+  line-height: 1;
+  background: #fff;
+}
+
+.feedback-badge.good {
+  color: var(--ink-black);
+  background: #b8f5d6;
+}
+
+.feedback-badge.good::before {
+  content: "✓";
+  background: #2bbf6f;
+  color: #fff;
+}
+
+.feedback-badge.bad {
+  color: var(--ink-black);
+  background: #ffc7d2;
+}
+
+.feedback-badge.bad::before {
+  content: "✗";
+  background: #e63950;
+  color: #fff;
+}
+
+.feedback-answer,
+.feedback-fun-fact,
+.feedback-level-up,
+.final-summary,
+.final-details {
+  font-size: 1.05rem;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.final-summary {
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.final-details {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin-top: 0;
+  margin-bottom: 14px;
+  color: #2b4f70;
+}
+
+.feedback-answer {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 800;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  color: #1c3f5e;
+}
+
+/* Encabezado del feedback: foto de la comida + texto de la respuesta */
+.feedback-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.feedback-image {
+  width: 150px;
+  aspect-ratio: 16 / 11;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 3px solid var(--ink-black);
+  box-shadow: var(--sticker-shadow);
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.feedback-head .feedback-answer {
+  margin: 0;
+  text-align: left;
+  max-width: 380px;
+}
+
+.feedback-fun-fact {
+  font-size: 1.35rem;
+  line-height: 1.55;
+  color: #2b4f70;
+  margin-bottom: 0;
+  background: #f0f8ff;
+  border: 2px solid #d6e9ff;
+  border-radius: 14px;
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.feedback-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+  margin: 12px 0;
+  text-align: left;
+}
+
+.feedback-left,
+.feedback-right {
+  flex: none;
+  width: 100%;
+  max-width: 540px;
+  min-width: 0;
+}
+
+.feedback-map-wrap {
+  padding: 10px;
+  border-radius: 16px;
+  border: 2px solid #d7e8f8;
+  background: #fbfdff;
+  position: relative;
+}
+
+.country-map-caption {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  margin: 0;
+  z-index: 2;
+  text-align: center;
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink-black);
+  background: rgba(255, 255, 255, 0.82);
+  border-radius: 10px;
+  padding: 4px 8px;
+  pointer-events: none;
+}
+
+.country-map-caption:empty {
+  display: none;
+}
+
+.country-map {
+  width: 100%;
+  min-height: 230px;
+  border-radius: 12px;
+  background: #eff7ff;
+  overflow: hidden;
+}
+
+.feedback-level-up {
+  background: #e4f9ff;
+  color: #1f5273;
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-weight: 800;
+}
+
+/* ── Twemoji emoji images ── */
+img.emoji {
+  height: 1em;
+  width: 1em;
+  margin: 0 0.05em 0 0.05em;
+  vertical-align: -0.15em;
+  display: inline;
+}
+
+/* ── Country picker ── */
+.country-picker {
+  margin: 16px 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.country-picker-label {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  color: var(--ink-black);
+}
+
+.country-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: #fff8e7 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a1a1a' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;
+  border: 3px solid var(--ink-black);
+  border-radius: 14px;
+  box-shadow: var(--sticker-shadow);
+  padding: 10px 40px 10px 16px;
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  color: var(--ink-black);
+  cursor: pointer;
+  min-width: 220px;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.country-select:hover {
+  transform: translate(-1px, -2px);
+  box-shadow: 4px 5px 0 var(--ink-black);
+}
+
+.country-select:focus {
+  outline: none;
+  transform: translate(-1px, -2px);
+  box-shadow: 4px 5px 0 var(--ink-black);
+}
+
+/* ── Level-up screen ── */
+.levelup-card {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 28px;
+}
+
+.levelup-stars {
+  font-size: 2rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 12px;
+  animation: pop-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.levelup-headline {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 5rem);
+  color: var(--ink-black);
+  text-shadow: 3px 3px 0 rgba(255, 140, 66, 0.5);
+  margin: 0 0 10px;
+  letter-spacing: 0.04em;
+  animation: levelup-bounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.levelup-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: #1f5273;
+  background: #e4f9ff;
+  border: 3px solid var(--ink-black);
+  border-radius: 14px;
+  padding: 12px 20px;
+  box-shadow: var(--sticker-shadow);
+  margin: 0 auto 14px;
+  max-width: 400px;
+  letter-spacing: 0.03em;
+}
+
+.levelup-subtitle {
+  font-size: 1.2rem;
+  color: #2b4f70;
+  margin: 0 0 24px;
+}
+
+.levelup-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.levelup-actions .btn {
+  width: auto;
+}
+
+/* ── Wildcard screen ── */
+.wildcard-card {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 32px 28px;
+}
+
+.wildcard-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 3px solid var(--ink-black);
+  border-radius: 14px;
+  padding: 10px 22px;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  letter-spacing: 0.05em;
+  background: #ffe1b3;
+  box-shadow: var(--sticker-shadow);
+  margin: 0 auto 10px;
+  animation: pop-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.wildcard-badge::before {
+  content: "⭐";
+  font-size: 0.85em;
+}
+
+.wildcard-subtitle {
+  font-size: 1.15rem;
+  color: var(--ink-black);
+  margin: 0 0 20px;
+}
+
+.wildcard-question {
+  margin-bottom: 18px;
+}
+
+.wildcard-fact-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1c3f5e;
+  margin: 0 0 10px;
+}
+
+.wildcard-fact {
+  background: #f0f8ff;
+  border: 2px solid #d6e9ff;
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-size: 1.05rem;
+  color: #2b4f70;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.wildcard-big-flag {
+  font-size: 5rem;
+  line-height: 1;
+  margin: 10px 0;
+  animation: pop-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.wildcard-result {
+  min-height: 54px;
+  margin: 16px auto 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  max-width: 560px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: 3px solid var(--ink-black);
+  box-shadow: var(--sticker-shadow);
+  animation: pop-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.wildcard-result--win {
+  background: #b8f5d6;
+  color: var(--ink-black);
+}
+
+.wildcard-result--lose {
+  background: #ffc7d2;
+  color: var(--ink-black);
+}
+
+/* ── Creative writing (pantalla final) ── */
+.creative-writing {
+  margin: 16px auto 24px;
+  max-width: 620px;
+  text-align: left;
+}
+
+.creative-label {
+  display: block;
+  font-size: 1.3rem;
+  color: var(--ink-black);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.creative-textarea {
+  width: 100%;
+  border: 3px solid var(--ink-black);
+  border-radius: 14px;
+  box-shadow: var(--sticker-shadow);
+  padding: 12px 14px;
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  color: var(--ink-black);
+  background: #fff8e7;
+  resize: vertical;
+  min-height: 90px;
+  transition: box-shadow 0.16s ease;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.creative-textarea:focus {
+  outline: none;
+  box-shadow: 4px 5px 0 var(--ink-black);
+}
+
+.creative-textarea.shake {
+  animation: shake 0.35s ease;
+}
+
+.writeup-status {
+  margin: 10px 0 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1f6b3a;
+  background: #b8f5d6;
+  border: 3px solid var(--ink-black);
+  border-radius: 14px;
+  padding: 12px 18px;
+  box-shadow: var(--sticker-shadow);
+  animation: pop-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ── Sugerir un país (última página del final) ── */
+.suggest-country {
+  margin: 16px auto 24px;
+  max-width: 620px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.suggest-country .creative-label {
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.suggest-country .country-select {
+  width: 100%;
+  max-width: 360px;
+}
+
+.suggest-country .country-select.shake {
+  animation: shake 0.35s ease;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* opacity:0 — el elemento es invisible pero sigue ocupando espacio,
+   evitando el desplazamiento que produce display:none.
+   Permite transiciones CSS suaves. */
+.vis-hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+@keyframes levelup-bounce {
+  0%   { transform: scale(0.5) rotate(-6deg); opacity: 0; }
+  60%  { transform: scale(1.12) rotate(2deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    transform: scale(0.75);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 860px) {
+  .difficulty-options {
+    grid-template-columns: 1fr;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .app-shell {
+    padding: 10px 0 14px;
+  }
+
+  .start-card,
+  .feedback-card,
+  .final-card {
+    padding: 18px 14px;
+  }
+
+  .game-card {
+    padding: 10px 12px 12px;
+  }
+
+  .start-card h1,
+  .final-card h2 {
+    font-size: clamp(2rem, 7.5vw, 2.4rem);
+    margin: 4px 0 8px;
+  }
+
+  .lead {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .start-carousel {
+    height: 110px;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .difficulty-options {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .difficulty-option {
+    padding: 8px 10px;
+  }
+
+  .difficulty-name {
+    font-size: 1.25rem;
+  }
+
+  .btn-xl {
+    padding: 11px 22px;
+    font-size: 1.2rem;
+  }
+
+  .game-header {
+    gap: 5px 6px;
+  }
+
+  .lives-label,
+  .level-pill {
+    padding: 4px 10px;
+    font-size: 0.9rem;
+    border-width: 2px;
+  }
+
+  .btn-ghost {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border-width: 2px;
+  }
+
+  .btn-icon {
+    padding: 4px 8px;
+    font-size: 1rem;
+    border-width: 2px;
+  }
+
+  .meter-wrap {
+    margin-top: 10px;
+    margin-bottom: 4px;
+  }
+
+  .meter {
+    height: 10px;
+  }
+
+  .food-zone {
+    margin: 8px auto 4px;
+  }
+
+  .food-image-wrap {
+    width: min(260px, 70vw);
+    border-width: 2px;
+    box-shadow: 2px 2px 0 var(--ink-black);
+  }
+
+  .food-name {
+    font-size: clamp(1.6rem, 6vw, 2rem);
+    margin: 6px 0 0;
+  }
+
+  .question-text {
+    font-size: 1.05rem;
+    margin: 4px 0 8px;
+  }
+
+  .options-grid {
+    gap: 7px;
+  }
+
+  .option-btn {
+    min-height: 50px;
+    font-size: 1.2rem;
+    padding: 6px 10px;
+    border-width: 2px;
+    box-shadow: 2px 2px 0 var(--ink-black);
+  }
+
+  .score-label {
+    padding: 4px 12px;
+    font-size: 0.95rem;
+    border-width: 2px;
+  }
+
+  .feedback-badge {
+    padding: 4px 11px 4px 8px;
+    margin-bottom: 10px;
+    font-size: clamp(0.8rem, 3.5vw, 0.95rem);
+    border-width: 2px;
+  }
+
+  .feedback-answer {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .feedback-head {
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .feedback-image {
+    width: 96px;
+    border-width: 2px;
+  }
+
+  .feedback-fun-fact {
+    font-size: 1.2rem;
+    padding: 9px 11px;
+  }
+
+  .feedback-body {
+    gap: 10px;
+    margin: 8px 0;
+  }
+
+  .feedback-left {
+    flex: none;
+    width: 100%;
+  }
+
+  .feedback-map-wrap {
+    padding: 6px;
+  }
+
+  .country-map {
+    min-height: 150px;
+  }
+
+  .map-flag {
+    font-size: 1.8rem;
+  }
+
+  .country-select {
+    font-size: 1.05rem;
+    padding: 8px 36px 8px 12px;
+    min-width: 180px;
+  }
+
+  .levelup-card,
+  .wildcard-card {
+    padding: 20px 14px;
+  }
+
+  .levelup-headline {
+    font-size: clamp(2.4rem, 8vw, 3.2rem);
+  }
+
+  .levelup-title {
+    font-size: 1.3rem;
+    padding: 8px 14px;
+    border-width: 2px;
+  }
+
+  .levelup-stars {
+    font-size: 1.5rem;
+  }
+
+  .wildcard-badge {
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+    padding: 7px 14px;
+    border-width: 2px;
+  }
+
+  .wildcard-big-flag {
+    font-size: 3.5rem;
+  }
+
+  .wildcard-result {
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-width: 2px;
+  }
+
+  .creative-label {
+    font-size: 1.2rem;
+  }
+
+  .creative-textarea {
+    font-size: 0.95rem;
+    padding: 9px 10px;
+    border-width: 2px;
+  }
+
+  .final-dots {
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .final-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .final-section-title {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+
+  /* (Los overrides mobile de .foods-grid / .food-card-* viven más abajo,
+     DESPUÉS de las reglas base, para ganar por orden de fuente.) */
+
+  /* ── Mobile: caja fija, sin scroll del viewport ── */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  body {
+    background-attachment: fixed;
+  }
+
+  /* position: fixed + inset:0 ancla al viewport VISUAL real,
+     independiente de como iOS Chrome/Safari traten las toolbars. */
+  .app-shell {
+    position: fixed;
+    inset: 0;
+    width: auto;
+    padding: 12px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .screen.is-active {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .start-card,
+  .game-card,
+  .feedback-card,
+  .levelup-card,
+  .wildcard-card,
+  .final-card {
+    width: 100%;
+    max-width: 420px;
+    height: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: safe center;
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: pan-x;
+  }
+}
+
+/* ── Botones de respuesta: feedback visual inmediato ── */
+.option-btn--correct {
+  background: #b8f5d6 !important;
+  border-color: #2bbf6f !important;
+  box-shadow: 3px 3px 0 #1a6b3a !important;
+  transform: translate(1px, 1px) !important;
+}
+
+.option-btn--wrong {
+  background: #ffc7d2 !important;
+  border-color: #e63950 !important;
+  box-shadow: 3px 3px 0 #8b0000 !important;
+  transform: translate(1px, 1px) !important;
+}
+
+/* ── Animación +puntaje flotante ── */
+.score-float {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  color: #2bbf6f;
+  text-shadow:
+    2px  2px 0 #1a1a1a,
+   -2px -2px 0 #1a1a1a,
+    2px -2px 0 #1a1a1a,
+   -2px  2px 0 #1a1a1a;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  animation: score-float-up 1.6s ease-out forwards;
+}
+
+@keyframes score-float-up {
+  0%   { transform: translateX(-50%) translateY(0);     opacity: 1; }
+  70%  { transform: translateX(-50%) translateY(-70px);  opacity: 1; }
+  100% { transform: translateX(-50%) translateY(-100px); opacity: 0; }
+}
+
+/* ── Warning de última vida ── */
+.last-life-warning {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background: #ff4444;
+  color: #fff;
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border: 2px solid var(--ink-black);
+  border-radius: 999px;
+  box-shadow: 2px 2px 0 var(--ink-black);
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: last-life-flash 2s ease-out forwards;
+}
+
+@keyframes last-life-flash {
+  0%   { opacity: 0; }
+  15%  { opacity: 1; }
+  75%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ── Racha ── */
+
+/* ── Botón de sonido ── */
+.btn-icon {
+  padding: 5px 10px;
+  font-size: 1.15rem;
+  line-height: 1;
+  min-width: 0;
+  border-width: 2px;
+}
+
+/* ── Barra de avance automático ── */
+.auto-advance-bar {
+  width: 100%;
+  max-width: 260px;
+  height: 5px;
+  background: #ddeeff;
+  border-radius: 999px;
+  margin: 8px auto 0;
+  overflow: hidden;
+}
+
+.auto-advance-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, var(--primary), #ffb347);
+  border-radius: inherit;
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+/* ── Cuenta regresiva por pregunta (nivel Relámpago) ── */
+/* La barra reserva su lugar SIEMPRE que el nivel sea cronometrado: aunque el
+   tiempo se agote o el jugador responda (la barra queda en 0), el riel sigue
+   ocupando su alto, así nada se desplaza. En niveles sin tiempo se aplica
+   `.is-off` (display:none) y no reserva espacio. */
+.timer-bar {
+  width: 100%;
+  height: 12px;
+  margin-top: 8px;
+  background: #ffe2dc;
+  border: 2px solid var(--ink-black);
+  border-radius: 999px;
+  box-shadow: var(--sticker-shadow);
+  overflow: hidden;
+}
+
+.timer-bar.is-off {
+  display: none;
+}
+
+.timer-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #ff4d4f, #ff8c42);
+  border-radius: inherit;
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+/* ── Pantalla final: victoria vs game-over ── */
+.final-card--win {
+  background: rgba(210, 255, 230, 0.97) !important;
+}
+
+.final-card--gameover {
+  background: rgba(255, 218, 225, 0.97) !important;
+}
+
+/* ── Pantalla final: carrusel de páginas ── */
+.final-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.final-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #c8dff0;
+  border: 2px solid var(--ink-black);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.final-dot--active {
+  background: var(--primary);
+  transform: scale(1.3);
+}
+
+.final-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+#final-page-0 {
+  justify-content: center;
+  text-align: center;
+}
+
+.final-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+  letter-spacing: 0.04em;
+  color: var(--ink-black);
+  text-shadow: 1px 1px 0 rgba(255, 140, 66, 0.35);
+  margin: 0 0 12px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+/* ── Colección de comidas (tarjetas flip + scroll horizontal) ── */
+/* 2 filas; entran ~4 columnas (8 tarjetas) en pantalla y el resto se ve
+   scrolleando horizontalmente. grid-auto-flow:column va llenando columnas
+   hacia la derecha; grid-auto-columns fija el ancho para que entren 4. */
+.foods-grid {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 30px) / 4);
+  gap: 10px;
+  flex: 1;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 2px 12px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  /* Pocas comidas: centrar las columnas en vez de pegarlas a la izquierda.
+     `safe` cae a `start` cuando hay muchas y desbordan, así el scroll
+     horizontal sigue alcanzando la primera tarjeta. */
+  justify-content: safe center;
+}
+
+.food-card {
+  position: relative;
+  scroll-snap-align: start;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+  min-height: 0;
+  cursor: pointer;
+  perspective: 800px;
+}
+
+/* Contenedor que rota 180° al hacer click (state .flipped en el JS). */
+.food-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.34, 1.2, 0.64, 1);
+}
+
+.food-card.flipped .food-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Las dos caras ocupan todo el cuadro y comparten el look de sticker. */
+.food-card-front,
+.food-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border: 2px solid var(--ink-black);
+  border-radius: 12px;
+  box-shadow: 2px 2px 0 var(--ink-black);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #fff8e7;
+}
+
+/* Sólo la foto (hijo directo del front) llena la caja; la bandera emoji vive
+   dentro de .food-card-country y mantiene su tamaño 1em (regla img.emoji). */
+.food-card-front > img {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  object-fit: cover;
+  display: block;
+}
+
+.food-card-name {
+  font-family: var(--font-hand);
+  font-size: 0.82rem;
+  color: var(--ink-black);
+  padding: 4px 6px 2px;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.food-card-country {
+  font-family: var(--font-hand);
+  font-size: 0.75rem;
+  color: #4a6a8a;
+  padding: 0 6px 6px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Dorso: dato curioso de la comida. */
+.food-card-back {
+  transform: rotateY(180deg);
+  background: #eaf4ff;
+  padding: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Los fun_facts son cortos (máx ~90 caracteres), así que entran de sobra:
+   nada de scroll/max-height. El dato ocupa todo el ancho y se centra. */
+.food-card-fact {
+  width: 100%;
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  line-height: 1.38;
+  color: #2b4f70;
+  text-align: center;
+}
+
+/* Tilde de "acertaste": va sobre la cara frontal (se oculta al dar vuelta). */
+.food-card--correct .food-card-front::after {
+  content: "✓";
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  background: #2bbf6f;
+  color: #fff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border: 2px solid var(--ink-black);
+  line-height: 1;
+  z-index: 2;
+}
+
+/* Overrides mobile de la colección. Van acá (después de las reglas base) a
+   propósito: el bloque @media (max-width:560px) de más arriba está ANTES que
+   estas reglas base, así que perdería por orden de fuente. */
+@media (max-width: 560px) {
+  /* Columnas más anchas (~2,3 visibles, asoma la siguiente para invitar a
+     scrollear) y alto de fila acotado para que no queden tarjetas finitas y
+     altísimas en pantallas largas. */
+  .foods-grid {
+    grid-auto-columns: calc((100% - 16px) / 2.3);
+    grid-template-rows: repeat(2, minmax(0, 220px));
+    align-content: center;
+    gap: 8px;
+    padding-bottom: 10px;
+  }
+
+  .food-card-name {
+    font-size: 0.74rem;
+    padding: 3px 4px 1px;
+  }
+
+  .food-card-country {
+    font-size: 0.66rem;
+    padding: 0 4px 4px;
+  }
+
+  .food-card-fact {
+    font-size: 0.82rem;
+    line-height: 1.28;
+  }
+}
+
+/* ── Mapa final (página 2) ── */
+.final-map {
+  flex: 1;
+  min-height: 180px;
+  border-radius: 12px;
+  background: #cfe9ff;
+  overflow: hidden;
+}
+
+/* Tooltip del mapa (jsVectorMap): lo pisamos para que tenga el look cómic
+   del resto de la app en vez del recuadro azul por defecto. styles.css se
+   carga después de jsvectormap.min.css, así que gana por orden de fuente.
+   No tocamos position/display para no romper el posicionamiento interno. */
+.jvm-tooltip {
+  border-radius: 10px;
+  background-color: #fff8e7;
+  color: var(--ink-black);
+  font-family: var(--font-hand);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 2px solid var(--ink-black);
+  box-shadow: 2px 2px 0 var(--ink-black);
+  padding: 5px 12px;
+  z-index: 9999;
+}
+
+/* ── Desktop / tablet (>560px): caja fija del mismo tamano en todas las pantallas ── */
+@media (min-width: 561px) {
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  body {
+    background-attachment: fixed;
+  }
+
+  .app-shell {
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .screen.is-active {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Misma caja para las 6 pantallas. Si el contenido es mas chico que la
+     caja queda espacio en blanco interno; si en algun caso fuera mas
+     grande, justify-content:safe center cae a start y overflow:hidden
+     recorta antes que aparezca scroll. */
+  .start-card,
+  .game-card,
+  .feedback-card,
+  .levelup-card,
+  .wildcard-card,
+  .final-card {
+    width: min(900px, 92vw);
+    height: min(680px, 92vh);
+    max-width: 900px;
+    max-height: 680px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: safe center;
+    overflow: hidden;
+  }
+
+  /* feedback-body: dos columnas (texto izquierda, mapa derecha).
+     Ocupa el espacio vertical disponible y la columna izquierda
+     scrollea internamente si el fun_fact es muy largo. */
+  .feedback-body {
+    flex: 1;
+    min-height: 0;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .feedback-left {
+    flex: 0 0 42%;
+    width: auto;
+    max-width: none;
+    overflow-y: auto;
+    max-height: 100%;
+  }
+
+  .feedback-right {
+    flex: 1;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  /* Pantalla de juego: dentro de la caja fija de 680px las opciones
+     quedaban pegadas al borde inferior. Comprimimos imagen y márgenes
+     (sin tocar el min-height del question-slot, que reserva el alto del
+     cartel ✓/✗) para que todo entre centrado y con aire. */
+  .game-card .food-image-wrap {
+    width: min(330px, 78vw);
+  }
+
+  .game-card .meter-wrap {
+    margin-top: 10px;
+  }
+
+  .game-card .food-zone {
+    margin: 10px auto 2px;
+  }
+
+  .game-card .food-name {
+    margin: 8px 0 0;
+  }
+
+  .game-card .question-slot {
+    margin: 4px 0 10px;
+  }
+
+  /* Pantalla de inicio: con 4 niveles (2 filas) el contenido crecía y el
+     botón "Empezar a jugar" quedaba recortado bajo el borde de la caja fija
+     de 680px. Comprimimos carrusel, lead y márgenes para que todo entre
+     centrado con aire. */
+  .start-card {
+    padding: 22px 28px;
+  }
+
+  .start-card h1 {
+    margin: 2px 0 10px;
+  }
+
+  .start-card .start-carousel {
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  .start-card .lead {
+    margin-bottom: 8px;
+  }
+
+  .start-card .difficulty-compact .difficulty-options {
+    margin-bottom: 8px;
+  }
+
+  .start-card .country-picker {
+    margin: 10px 0 12px;
+  }
+
+  .start-card #start-game-btn {
+    margin-top: 4px;
+  }
+}
+
+/* ── Landscape / viewport con poca altura: permitir scroll interno en la caja ── */
+/* Caso tipico: telefono rotado a horizontal. La caja sigue centrada y de
+   tamano fijo, pero el contenido adentro puede scrollearse en lugar de
+   quedar recortado. Va DESPUES de mobile y desktop para tener prioridad
+   sobre los overflow:hidden de ambos bloques. */
+@media (max-height: 500px) {
+  .start-card,
+  .game-card,
+  .feedback-card,
+  .levelup-card,
+  .wildcard-card,
+  .final-card {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    overscroll-behavior: contain;
+    justify-content: flex-start;
+  }
+
+  .start-carousel {
+    height: 80px;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+}

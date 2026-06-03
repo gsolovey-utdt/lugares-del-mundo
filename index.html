@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lugares del Mundo</title>
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#1a6a9f" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Lugares del Mundo" />
+    <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
+    <!-- Open Graph / compartir -->
+    <meta name="description" content="Juego educativo: adiviná de qué país es cada lugar famoso del mundo. ¡4 niveles de dificultad!" />
+    <meta property="og:title" content="Lugares del Mundo 🌍" />
+    <meta property="og:description" content="Adiviná de qué país es cada lugar famoso. ¡4 niveles de dificultad!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gsolovey-utdt.github.io/lugares-del-mundo/" />
+    <meta property="og:image" content="https://gsolovey-utdt.github.io/lugares-del-mundo/images/places/machu-picchu.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="vendor/jsvectormap/css/jsvectormap.min.css" />
+    <link rel="stylesheet" href="styles.css?v=20" />
+  </head>
+  <body>
+    <div class="bg-blob blob-a" aria-hidden="true"></div>
+    <div class="bg-blob blob-b" aria-hidden="true"></div>
+    <div class="bg-blob blob-c" aria-hidden="true"></div>
+
+    <main class="app-shell">
+
+      <!-- ── INICIO ── -->
+      <section id="screen-start" class="screen is-active">
+        <div class="card start-card">
+          <h1>Lugares del Mundo</h1>
+
+          <div class="start-carousel" aria-hidden="true">
+            <div class="start-carousel-slot"><img src="images/places/machu-picchu.jpg" alt=""></div>
+            <div class="start-carousel-slot"><img src="images/places/coliseo-de-roma.jpg" alt=""></div>
+            <div class="start-carousel-slot"><img src="images/places/taj-mahal.jpg" alt=""></div>
+          </div>
+
+          <p class="lead">
+            Descubrí lugares famosos del mundo en cada ronda.
+          </p>
+
+          <div class="difficulty-picker difficulty-compact">
+            <div class="difficulty-options">
+              <label class="difficulty-option selected">
+                <input type="radio" name="difficulty" value="easy" checked />
+                <span class="difficulty-name">Fácil</span>
+              </label>
+              <label class="difficulty-option">
+                <input type="radio" name="difficulty" value="medium" />
+                <span class="difficulty-name">Intermedio</span>
+              </label>
+              <label class="difficulty-option">
+                <input type="radio" name="difficulty" value="hard" />
+                <span class="difficulty-name">Difícil</span>
+              </label>
+              <label class="difficulty-option">
+                <input type="radio" name="difficulty" value="flash" />
+                <span class="difficulty-name">Relámpago ⚡</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="country-picker">
+            <label for="player-country" class="country-picker-label">
+              ¿De qué país sos?
+            </label>
+            <select id="player-country" class="country-select">
+              <!-- poblado por JS -->
+            </select>
+          </div>
+
+          <button id="start-game-btn" class="btn btn-primary btn-xl">
+            Empezar a jugar
+          </button>
+        </div>
+      </section>
+
+      <!-- ── JUEGO ── -->
+      <section id="screen-game" class="screen" aria-live="polite">
+        <div class="card game-card">
+          <header class="game-header">
+            <span id="level-pill" class="level-pill">Nivel Fácil</span>
+            <span id="lives-label" class="lives-label">❤️❤️❤️❤️❤️</span>
+            <button id="sound-btn" class="btn btn-ghost btn-icon" title="Sonido activado">🔊</button>
+            <span id="score-label" class="score-label">Puntaje: 0</span>
+            <button id="restart-btn" class="btn btn-ghost">Reiniciar</button>
+          </header>
+
+          <div class="meter-wrap">
+            <div class="meter">
+              <div id="progress-fill" class="meter-fill"></div>
+            </div>
+          </div>
+
+          <div id="question-timer-bar" class="timer-bar is-off">
+            <div id="question-timer-fill" class="timer-fill"></div>
+          </div>
+
+          <div class="food-zone">
+            <div class="food-image-wrap">
+              <img
+                id="food-image"
+                src="images/placeholder-food.svg"
+                alt="Imagen de un lugar"
+              />
+              <div id="food-placeholder" class="food-placeholder" hidden>
+                <span id="food-placeholder-letter">?</span>
+              </div>
+            </div>
+            <h2 id="food-name" class="food-name">Lugar</h2>
+          </div>
+
+          <div class="question-slot">
+            <div id="answer-flash" class="feedback-badge answer-flash" hidden></div>
+            <p class="question-text">¿De qué país es este lugar?</p>
+          </div>
+          <div id="options-grid" class="options-grid"></div>
+        </div>
+      </section>
+
+      <!-- ── FEEDBACK ── -->
+      <section id="screen-feedback" class="screen">
+        <div class="card feedback-card">
+          <div class="feedback-head">
+            <img id="feedback-image" class="feedback-image" alt="" />
+            <p id="feedback-answer" class="feedback-answer">
+              Este lugar está en Japón.
+            </p>
+          </div>
+
+          <div class="feedback-body">
+            <div class="feedback-left">
+              <p id="feedback-fun-fact" class="feedback-fun-fact"></p>
+            </div>
+            <div class="feedback-right">
+              <div class="feedback-map-wrap">
+                <p id="country-map-caption" class="country-map-caption" aria-live="polite"></p>
+                <div id="country-map" class="country-map"></div>
+              </div>
+            </div>
+          </div>
+
+          <button id="next-round-btn" class="btn btn-primary btn-xl">
+            Siguiente ronda
+          </button>
+          <div id="auto-advance-bar" class="auto-advance-bar" hidden>
+            <div id="auto-advance-fill" class="auto-advance-fill"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── TRANSICIÓN DE NIVEL ── -->
+      <section id="screen-levelup" class="screen">
+        <div class="card levelup-card">
+          <div class="levelup-stars" aria-hidden="true">⭐ ⭐ ⭐</div>
+          <h2 class="levelup-headline">¡Muy bien!</h2>
+          <p id="levelup-title" class="levelup-title">¡Completaste el nivel Fácil!</p>
+          <p class="levelup-subtitle">¿Querés seguir o ver todo lo que aprendiste?</p>
+          <div class="levelup-actions">
+            <button id="levelup-next-btn" class="btn btn-primary btn-xl">
+              Seguir al siguiente nivel →
+            </button>
+            <button id="levelup-finish-btn" class="btn btn-ghost btn-xl">
+              Terminar y ver lo que aprendí
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── COMODÍN ── -->
+      <section id="screen-wildcard" class="screen">
+        <div class="card wildcard-card">
+          <p class="wildcard-badge">¡Oportunidad!</p>
+          <p class="wildcard-subtitle">Respondé bien y ganás una vida extra ❤️</p>
+          <div id="wildcard-question" class="wildcard-question"></div>
+          <div id="wildcard-grid" class="options-grid"></div>
+          <p id="wildcard-result" class="wildcard-result vis-hidden"></p>
+          <button id="wildcard-continue-btn" class="btn btn-primary btn-xl vis-hidden">
+            Continuar
+          </button>
+        </div>
+      </section>
+
+      <!-- ── FINAL ── -->
+      <section id="screen-final" class="screen">
+        <div class="card final-card">
+
+          <!-- Dots de navegación -->
+          <div class="final-dots" id="final-dots">
+            <span class="final-dot final-dot--active"></span>
+            <span class="final-dot"></span>
+            <span class="final-dot"></span>
+            <span class="final-dot"></span>
+            <span class="final-dot"></span>
+          </div>
+
+          <!-- Página 0: resultado -->
+          <div class="final-page" id="final-page-0">
+            <h2 id="final-headline">¡Fin del recorrido!</h2>
+            <p id="final-summary" class="final-summary"></p>
+            <p id="final-details" class="final-details"></p>
+          </div>
+
+          <!-- Página 1: colección de lugares -->
+          <div class="final-page" id="final-page-1" hidden>
+            <h3 class="final-section-title" id="final-foods-title">¡Hoy aprendiste sobre estos lugares!</h3>
+            <div class="foods-grid" id="final-foods-grid"></div>
+          </div>
+
+          <!-- Página 2: mapa mundial -->
+          <div class="final-page" id="final-page-2" hidden>
+            <h3 class="final-section-title">¡Aprendiste sobre lugares de todos estos países!</h3>
+            <div id="final-map" class="final-map"></div>
+          </div>
+
+          <!-- Página 3: escritura creativa -->
+          <div class="final-page" id="final-page-3" hidden>
+            <div class="creative-writing">
+              <label for="final-text" class="creative-label">
+                ✏️ ¿Cuál es el lugar que más te gustó? ¿Te gustaría visitarlo algún día? ¿Con quién irías?
+              </label>
+              <textarea
+                id="final-text"
+                class="creative-textarea"
+                rows="4"
+                placeholder="Escribí acá..."
+                maxlength="2000"
+              ></textarea>
+              <button id="save-writeup-btn" class="btn btn-primary">
+                Guardar
+              </button>
+              <p id="writeup-status" class="writeup-status" hidden>
+                ¡Gracias por contarme! 💛
+              </p>
+            </div>
+          </div>
+
+          <!-- Página 4: sugerir un país nuevo -->
+          <div class="final-page" id="final-page-4" hidden>
+            <div class="suggest-country">
+              <label for="suggest-country-select" class="creative-label">
+                🌍 ¿Te gustaría aprender sobre lugares de otro país? ¡Elegilo de la lista y lo vamos a agregar pronto!
+              </label>
+              <select id="suggest-country-select" class="country-select"></select>
+              <button id="suggest-country-btn" class="btn btn-primary">
+                Enviar
+              </button>
+              <p id="suggest-status" class="writeup-status" hidden>
+                ¡Anotado! Lo vamos a agregar pronto 🌟
+              </p>
+            </div>
+          </div>
+
+          <!-- Navegación del carrusel -->
+          <button id="final-next-btn" class="btn btn-primary btn-xl">Siguiente →</button>
+          <button id="play-again-btn" class="btn btn-primary btn-xl" hidden>Volver a jugar</button>
+
+        </div>
+      </section>
+
+    </main>
+
+    <script defer src="vendor/jsvectormap/js/jsvectormap.min.js"></script>
+    <script defer src="vendor/jsvectormap/maps/world-merc.js"></script>
+    <script defer src="data/places.js?v=1"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script async src="https://cdn.jsdelivr.net/npm/@twemoji/api@15.1.0/dist/twemoji.min.js" crossorigin="anonymous"></script>
+    <script defer src="app.js?v=1"></script>
+
+    <!-- Service Worker -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("./sw.js").catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>

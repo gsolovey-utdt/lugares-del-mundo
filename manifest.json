@@ -1,0 +1,18 @@
+{
+  "name": "Lugares del Mundo",
+  "short_name": "Lugares",
+  "description": "Juego educativo: adiviná de qué país es cada lugar famoso del mundo.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#1a6a9f",
+  "theme_color": "#1a6a9f",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

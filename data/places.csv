@@ -1,0 +1,94 @@
+place_name,country,image,fun_fact,distractors_easy,distractors_medium,distractors_hard
+Monte Fuji,Japón,images/places/monte-fuji.jpg,"Es la montaña más alta de Japón y es un volcán que ahora está dormido.",Argentina | Egipto,India | Tailandia,China | Corea del Sur
+Gran Buda de Kamakura,Japón,images/places/gran-buda-de-kamakura.jpg,"Es una estatua de bronce gigante de más de 700 años… ¡y está al aire libre!",Brasil | Nigeria,Vietnam | Malasia,Corea del Sur | Taiwán
+Torii flotante de Itsukushima,Japón,images/places/torii-flotante-de-itsukushima.jpg,"Cuando sube la marea, esta puerta roja parece flotar sobre el agua.",México | Suecia,China | Tailandia,China | Corea del Sur
+Acueducto de Segovia,España,images/places/acueducto-de-segovia.jpg,"Lo construyeron los romanos hace casi 2000 años ¡sin usar pegamento entre las piedras!",Japón | Canadá,Italia | Grecia,Portugal | Francia
+Alhambra de Granada,España,images/places/alhambra-de-granada.jpg,"Es un palacio-fortaleza con patios, fuentes y jardines hechos por reyes árabes.",Brasil | India,Marruecos | Portugal,Portugal | Marruecos
+Mezquita-Catedral de Córdoba,España,images/places/mezquita-catedral-de-cordoba.jpg,"Adentro tiene un bosque de cientos de arcos a rayas rojas y blancas.",Suecia | México,Francia | Italia,Italia | Portugal
+Coliseo de Roma,Italia,images/places/coliseo-de-roma.jpg,"En este enorme estadio romano luchaban los gladiadores hace casi 2000 años.",Canadá | Japón,España | Grecia,Grecia | España
+Torre inclinada de Pisa,Italia,images/places/torre-inclinada-de-pisa.jpg,"Se empezó a inclinar mientras la construían… ¡y nunca se cayó!",Brasil | India,Francia | España,Francia | España
+Canales de Venecia,Italia,images/places/canales-de-venecia.jpg,"En esta ciudad las calles son de agua y la gente se mueve en barquitos.",Suecia | Tailandia,Grecia | España,Grecia | Francia
+Torre Eiffel,Francia,images/places/torre-eiffel.jpg,"Está hecha de hierro y cuando se construyó era la torre más alta del mundo.",Brasil | Japón,España | Italia,Bélgica | Suiza
+Mont Saint-Michel,Francia,images/places/mont-saint-michel.jpg,"Es un pueblo con una abadía sobre una isla que a veces queda rodeada de mar.",México | India,Reino Unido | Bélgica,Reino Unido | Bélgica
+Arco del Triunfo,Francia,images/places/arco-del-triunfo.jpg,"Es un arco gigante construido para recordar a los soldados de Francia.",Argentina | Egipto,Italia | Alemania,Alemania | Bélgica
+Castillo de Neuschwanstein,Alemania,images/places/castillo-de-neuschwanstein.jpg,"Este castillo de cuento inspiró al castillo de las películas de Disney.",Brasil | Japón,Austria | Suiza,Austria | Suiza
+Puerta de Brandeburgo,Alemania,images/places/puerta-de-brandeburgo.jpg,"Es la puerta más famosa de Berlín y arriba tiene un carro tirado por caballos.",Argentina | India,Polonia | Bélgica,Austria | Polonia
+Catedral de Colonia,Alemania,images/places/catedral-de-colonia.jpg,"Tardaron más de 600 años en terminar esta catedral altísima.",México | Tailandia,Francia | Austria,Bélgica | Austria
+Parlamento de Budapest,Hungría,images/places/parlamento-de-budapest.jpg,"Es un palacio enorme a la orilla del río Danubio con muchísimas torres.",Brasil | Japón,Polonia | Rumania,Austria | Eslovaquia
+Bastión de los Pescadores,Hungría,images/places/bastion-de-los-pescadores.jpg,"Sus torres blancas parecen sacadas de un cuento de hadas.",México | India,Austria | República Checa,Rumania | Eslovaquia
+Puente de las Cadenas,Hungría,images/places/puente-de-las-cadenas.jpg,"Fue el primer puente que unió las dos partes de la ciudad, Buda y Pest.",Canadá | Nigeria,Rumania | Polonia,República Checa | Austria
+Partenón,Grecia,images/places/partenon.jpg,"Este templo de columnas tiene casi 2500 años y está sobre una colina.",Japón | México,Italia | Turquía,Turquía | Chipre
+Santorini,Grecia,images/places/santorini.jpg,"Sus casas blancas con techos azules están sobre acantilados frente al mar.",Brasil | Suecia,España | Italia,Turquía | Italia
+Monasterios de Meteora,Grecia,images/places/monasterios-de-meteora.jpg,"Hay monasterios construidos en la punta de rocas altísimas.",Canadá | India,Turquía | Italia,Bulgaria | Chipre
+Ait Benhaddou,Marruecos,images/places/ait-benhaddou.jpg,"Es una ciudad de barro en el desierto que aparece en muchas películas.",Japón | Suecia,Egipto | Túnez,Argelia | Túnez
+Chefchaouen,Marruecos,images/places/chefchaouen.jpg,"Todas las casas de este pueblo están pintadas de azul.",Canadá | Brasil,España | Argelia,Argelia | España
+Mezquita Koutoubia,Marruecos,images/places/mezquita-koutoubia.jpg,"Su torre se ve desde casi toda la ciudad de Marrakech.",México | India,Túnez | Egipto,Argelia | Túnez
+Catedral de Santa Sofía de Kiev,Ucrania,images/places/catedral-de-santa-sofia-de-kiev.jpg,"Tiene cúpulas doradas que brillan con el sol y casi 1000 años.",Brasil | México,Polonia | Rumania,Rusia | Bielorrusia
+Monasterio de las Cuevas de Kiev,Ucrania,images/places/monasterio-de-las-cuevas-de-kiev.jpg,"Debajo de este monasterio hay túneles y cuevas muy antiguos.",Japón | Canadá,Rusia | Polonia,Bielorrusia | Polonia
+Castillo de Kamianets-Podilskyi,Ucrania,images/places/castillo-de-kamianets-podilskyi.jpg,"Es un castillo rodeado por un cañón, como protegido por la naturaleza.",India | Nigeria,Rumania | Hungría,Polonia | Bielorrusia
+Stonehenge,Reino Unido,images/places/stonehenge.jpg,"Nadie sabe con certeza cómo movieron estas piedras gigantes hace miles de años.",Brasil | Japón,Francia | Alemania,Irlanda | Escocia
+Big Ben,Reino Unido,images/places/big-ben.jpg,"Es la torre del reloj más famosa de Londres y su campana suena fuertísimo.",México | India,Irlanda | Estados Unidos,Escocia | Irlanda
+Tower Bridge,Reino Unido,images/places/tower-bridge.jpg,"Este puente se abre por el medio para dejar pasar a los barcos grandes.",Argentina | Egipto,Francia | Bélgica,Irlanda | Escocia
+Cristo Redentor,Brasil,images/places/cristo-redentor.jpg,"Esta estatua gigante abre los brazos sobre la ciudad de Río de Janeiro.",Japón | Suecia,Argentina | Colombia,Argentina | Uruguay
+Pan de Azúcar,Brasil,images/places/pan-de-azucar.jpg,"A este cerro con forma redonda se sube en un teleférico colgante.",Canadá | India,Perú | Venezuela,Venezuela | Colombia
+Teatro Amazonas,Brasil,images/places/teatro-amazonas.jpg,"Es un teatro de colores en plena selva del Amazonas.",Marruecos | Tailandia,Colombia | Perú,Argentina | Paraguay
+Cataratas del Iguazú,Argentina,images/places/cataratas-del-iguazu.jpg,"Son cientos de saltos de agua juntos; el más grande es la Garganta del Diablo.",Japón | Suecia,Chile | Brasil,Uruguay | Chile
+Glaciar Perito Moreno,Argentina,images/places/glaciar-perito-moreno.jpg,"Es un río de hielo gigante del que a veces se desprenden bloques enormes.",Canadá | India,Bolivia | Perú,Chile | Uruguay
+Obelisco de Buenos Aires,Argentina,images/places/obelisco-de-buenos-aires.jpg,"Esta aguja blanca en el centro de la ciudad es el símbolo de Buenos Aires.",Egipto | Nigeria,Brasil | Chile,Uruguay | Chile
+Machu Picchu,Perú,images/places/machu-picchu.jpg,"Esta ciudad inca está escondida en lo alto de las montañas, entre las nubes.",Alemania | Canadá,Chile | Ecuador,Bolivia | Ecuador
+Líneas de Nazca,Perú,images/places/lineas-de-nazca.jpg,"Son dibujos gigantes en el desierto que recién se ven bien desde el aire.",Japón | Suecia,Colombia | Bolivia,Bolivia | Chile
+Sacsayhuamán,Perú,images/places/sacsayhuaman.jpg,"Los incas encajaron piedras enormes tan justas que no entra ni un papel.",México | India,Ecuador | Colombia,Ecuador | Bolivia
+Chichén Itzá,México,images/places/chichen-itza.jpg,"Esta pirámide maya tiene escalones que suman los días del año.",Suecia | India,Guatemala | Perú,Guatemala | El Salvador
+Teotihuacán,México,images/places/teotihuacan.jpg,"Aquí está la Pirámide del Sol, una de las más grandes del mundo antiguo.",Japón | Canadá,Colombia | Perú,Guatemala | Honduras
+Ruinas de Tulum,México,images/places/ruinas-de-tulum.jpg,"Es una ciudad maya construida al borde de un acantilado frente al mar.",Brasil | Nigeria,Guatemala | Honduras,Guatemala | El Salvador
+Cataratas del Niágara,Canadá,images/places/cataratas-del-niagara.jpg,"Cae tanta agua que se escucha el ruido desde muy lejos.",India | Marruecos,Estados Unidos | Reino Unido,Estados Unidos | Noruega
+Château Frontenac,Canadá,images/places/chateau-frontenac.jpg,"Parece un castillo gigante pero en realidad es un famoso hotel.",Japón | Brasil,Estados Unidos | Suecia,Estados Unidos | Islandia
+Lago Moraine,Canadá,images/places/lago-moraine.jpg,"Su agua es de un color turquesa increíble por el hielo de las montañas.",Egipto | Nigeria,Noruega | Estados Unidos,Estados Unidos | Suiza
+Estatua de la Libertad,Estados Unidos,images/places/estatua-de-la-libertad.jpg,"Fue un regalo de Francia y sostiene una antorcha bien en alto.",Marruecos | Japón,Canadá | México,Canadá | Reino Unido
+Gran Cañón,Estados Unidos,images/places/gran-canon.jpg,"Es una grieta enorme que el río Colorado fue cavando durante millones de años.",India | Suecia,Canadá | Australia,México | Canadá
+Monte Rushmore,Estados Unidos,images/places/monte-rushmore.jpg,"En esta montaña tallaron las caras gigantes de cuatro presidentes.",Brasil | Egipto,Canadá | México,Canadá | Australia
+Taj Mahal,India,images/places/taj-mahal.jpg,"Es un palacio de mármol blanco que un rey mandó hacer por amor.",Chile | Canadá,Pakistán | Bangladesh,Pakistán | Nepal
+Hawa Mahal,India,images/places/hawa-mahal.jpg,"Tiene casi mil ventanitas para que entrara el viento y refrescara.",Japón | Suecia,Nepal | Tailandia,Bangladesh | Pakistán
+Fuerte Amber,India,images/places/fuerte-amber.jpg,"Es una fortaleza enorme en lo alto de una colina, con murallas larguísimas.",Brasil | México,Pakistán | Nepal,Nepal | Bangladesh
+Wat Arun,Tailandia,images/places/wat-arun.jpg,"Sus torres están decoradas con miles de pedacitos de porcelana de colores.",Argentina | Suecia,Vietnam | Malasia,Camboya | Laos
+Buda reclinado de Wat Pho,Tailandia,images/places/buda-reclinado-de-wat-pho.jpg,"Es una estatua de Buda acostado tan larga como media cancha de fútbol.",Brasil | Canadá,Camboya | Vietnam,Laos | Camboya
+Ruinas de Ayutthaya,Tailandia,images/places/ruinas-de-ayutthaya.jpg,"Fue una ciudad gigante y hoy quedan templos antiguos entre los árboles.",México | Nigeria,Malasia | India,Camboya | Vietnam
+Bahía de Ha Long,Vietnam,images/places/bahia-de-ha-long.jpg,"Del mar salen miles de islas de roca con forma de torres verdes.",Brasil | Canadá,Tailandia | China,Laos | Camboya
+Hoi An,Vietnam,images/places/hoi-an.jpg,"Sus calles se llenan de farolitos de papel de muchos colores.",Japón | Suecia,Malasia | Tailandia,Camboya | Laos
+Templo de la Literatura,Vietnam,images/places/templo-de-la-literatura.jpg,"Fue una de las primeras escuelas del país, hace casi 1000 años.",México | Nigeria,China | Tailandia,Laos | China
+Palacio Gyeongbokgung,Corea del Sur,images/places/palacio-gyeongbokgung.jpg,"Es el palacio más grande de los reyes de Corea, en el centro de Seúl.",Uruguay | Marruecos,Japón | Taiwán,Japón | Corea del Norte
+Aldea Hanok de Bukchon,Corea del Sur,images/places/aldea-hanok-de-bukchon.jpg,"Es un barrio de casas tradicionales con techos curvos.",Brasil | Canadá,China | Japón,Corea del Norte | China
+Templo Bulguksa,Corea del Sur,images/places/templo-bulguksa.jpg,"Este templo de madera y piedra tiene más de 1200 años.",México | India,Taiwán | Japón,Corea del Norte | Taiwán
+Gran Muralla China,China,images/places/gran-muralla-china.jpg,"Es tan larga que serpentea por las montañas durante miles de kilómetros.",Argentina | Canadá,Japón | Corea del Sur,Taiwán | Corea del Sur
+Ciudad Prohibida,China,images/places/ciudad-prohibida.jpg,"Era el palacio del emperador y la gente común no podía entrar.",Brasil | México,India | Vietnam,Taiwán | Japón
+Ejército de Terracota,China,images/places/ejercito-de-terracota.jpg,"Son miles de soldados de barro de tamaño real, ¡y todos con cara distinta!",Suecia | Nigeria,Japón | Taiwán,Corea del Sur | Taiwán
+Iglesias de Lalibela,Etiopía,images/places/iglesias-de-lalibela.jpg,"Estas iglesias fueron talladas hacia abajo, dentro de la roca.",Canadá | Japón,Egipto | Sudán,Eritrea | Somalia
+Castillos de Gondar,Etiopía,images/places/castillos-de-gondar.jpg,"Es una ciudad con castillos de piedra, como un cuento africano.",Brasil | Suecia,Eritrea | Somalia,Sudán | Yibuti
+Estelas de Aksum,Etiopía,images/places/estelas-de-aksum.jpg,"Son columnas de piedra altísimas hechas de un solo bloque hace siglos.",México | India,Sudán | Egipto,Yibuti | Eritrea
+Zuma Rock,Nigeria,images/places/zuma-rock.jpg,"Es una roca gigante que parece tener la forma de una cara.",Japón | Canadá,Ghana | Senegal,Ghana | Senegal
+Olumo Rock,Nigeria,images/places/olumo-rock.jpg,"Hace mucho tiempo la gente se escondía dentro de esta gran roca.",Brasil | India,Egipto | Etiopía,Sierra Leona | Liberia
+Bosque sagrado de Osun-Osogbo,Nigeria,images/places/bosque-sagrado-de-osun-osogbo.jpg,"Es un bosque con esculturas donde se cuidan árboles muy antiguos.",Suecia | México,Senegal | Ghana,Ghana | Liberia
+Muro de los Lamentos,Israel,images/places/muro-de-los-lamentos.jpg,"Mucha gente deja papelitos con deseos entre las piedras de este muro.",Brasil | Canadá,Turquía | Grecia,Líbano | Jordania
+Fortaleza de Masada,Israel,images/places/fortaleza-de-masada.jpg,"Es una fortaleza en la cima de una montaña en pleno desierto.",Japón | Suecia,Egipto | Jordania,Jordania | Siria
+Mar Muerto,Israel,images/places/mar-muerto.jpg,"Tiene tanta sal que uno flota sin esfuerzo, ¡como un corcho!",México | Nigeria,Líbano | Turquía,Jordania | Líbano
+Ruinas jesuíticas de la Santísima Trinidad,Paraguay,images/places/ruinas-jesuiticas-de-la-santisima-trinidad.jpg,"Son los restos de un pueblo de piedra de hace más de 300 años.",Japón | Canadá,Argentina | Uruguay,Bolivia | Argentina
+Palacio de los López,Paraguay,images/places/palacio-de-los-lopez.jpg,"Es el palacio del gobierno, blanco y muy elegante, en Asunción.",Suecia | India,Brasil | Bolivia,Uruguay | Argentina
+Salto Cristal,Paraguay,images/places/salto-cristal.jpg,"Es una catarata de agua tan clara que se ve el fondo.",México | Nigeria,Uruguay | Bolivia,Argentina | Bolivia
+Joya de Cerén,El Salvador,images/places/joya-de-ceren.jpg,"Un volcán tapó este pueblo y quedó guardado como una foto del pasado.",Suecia | Canadá,Guatemala | Honduras,Guatemala | Honduras
+Ruinas de Tazumal,El Salvador,images/places/ruinas-de-tazumal.jpg,"Es una pirámide maya, una de las más importantes del país.",Japón | India,México | Nicaragua,Nicaragua | Costa Rica
+Lago de Coatepeque,El Salvador,images/places/lago-de-coatepeque.jpg,"Es un lago azul que se formó dentro de un volcán.",Brasil | Nigeria,Honduras | Guatemala,Honduras | Nicaragua
+Volcán Arenal,Costa Rica,images/places/volcan-arenal.jpg,"Tiene una forma de cono casi perfecta y estuvo activo durante muchos años.",Japón | Suecia,Nicaragua | Panamá,Nicaragua | Panamá
+Esferas de piedra del Diquís,Costa Rica,images/places/esferas-de-piedra-del-diquis.jpg,"Son bolas de piedra perfectas y nadie sabe bien para qué se hicieron.",Canadá | India,Guatemala | Honduras,Panamá | Honduras
+Catarata La Fortuna,Costa Rica,images/places/catarata-la-fortuna.jpg,"El agua cae desde muy alto en medio de la selva verde.",Brasil | Marruecos,Panamá | Nicaragua,Nicaragua | Honduras
+Gamla Stan,Suecia,images/places/gamla-stan.jpg,"Es el casco antiguo con casitas de colores y calles de piedra.",Japón | México,Noruega | Dinamarca,Noruega | Finlandia
+Castillo de Kalmar,Suecia,images/places/castillo-de-kalmar.jpg,"Es un castillo con torres y foso, como los de los caballeros.",Brasil | India,Finlandia | Noruega,Dinamarca | Noruega
+Piedras de Ale,Suecia,images/places/piedras-de-ale.jpg,"Son piedras enormes puestas en forma de barco hace muchísimo tiempo.",Marruecos | Nigeria,Dinamarca | Finlandia,Finlandia | Dinamarca
+Colonia del Sacramento,Uruguay,images/places/colonia-del-sacramento.jpg,"Tiene calles de piedra y un faro antiguo frente al río.",Japón | Suecia,Argentina | Brasil,Argentina | Paraguay
+Palacio Salvo,Uruguay,images/places/palacio-salvo.jpg,"Cuando se construyó era uno de los edificios más altos de Sudamérica.",Canadá | India,Chile | Paraguay,Argentina | Brasil
+La Mano de Punta del Este,Uruguay,images/places/la-mano-de-punta-del-este.jpg,"Es una mano gigante que sale de la arena de la playa.",Egipto | Nigeria,Brasil | Chile,Paraguay | Argentina
+Capadocia,Turquía,images/places/capadocia.jpg,"Tiene casas y ciudades excavadas en rocas blandas con formas raras.",Brasil | Canadá,Grecia | Italia,Grecia | Siria
+Santa Sofía,Turquía,images/places/santa-sofia.jpg,"Esta enorme cúpula tiene casi 1500 años y se ve desde lejos.",Japón | México,Egipto | Grecia,Grecia | Líbano
+Pamukkale,Turquía,images/places/pamukkale.jpg,"Parecen escalones de algodón blanco, pero son de piedra y agua caliente.",Suecia | Nigeria,Líbano | Grecia,Siria | Chipre
+Cartagena amurallada,Colombia,images/places/cartagena-amurallada.jpg,"Una gran muralla rodea el casco viejo para protegerlo de los piratas.",Japón | Suecia,Venezuela | Perú,Venezuela | Ecuador
+Piedra del Peñol,Colombia,images/places/piedra-del-penol.jpg,"Es una roca enorme con una escalera de más de 700 escalones.",Canadá | India,Ecuador | Panamá,Venezuela | Panamá
+Caño Cristales,Colombia,images/places/cano-cristales.jpg,"Lo llaman 'el río de cinco colores' por sus plantas rojas en el agua.",Marruecos | Nigeria,Perú | Venezuela,Ecuador | Venezuela

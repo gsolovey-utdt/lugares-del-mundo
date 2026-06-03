@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 440" role="img" aria-labelledby="title desc">
+  <title id="title">Ilustración temporal de comida</title>
+  <desc id="desc">Plato ilustrado para usar cuando no hay imagen disponible</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fff7db"/>
+      <stop offset="100%" stop-color="#e1f1ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="440" fill="url(#bg)" />
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="320" cy="250" rx="180" ry="102" fill="#fff" stroke="#9cc5e8" stroke-width="10"/>
+    <ellipse cx="320" cy="250" rx="110" ry="55" fill="#f3fbff" stroke="#cbe5f8" stroke-width="8"/>
+    <circle cx="262" cy="228" r="12" fill="#ffb96c" stroke="#f6973f" stroke-width="6"/>
+    <circle cx="320" cy="210" r="15" fill="#8bd38e" stroke="#62af64" stroke-width="6"/>
+    <circle cx="380" cy="236" r="11" fill="#ff8a9f" stroke="#db5f77" stroke-width="6"/>
+  </g>
+  <text x="320" y="360" text-anchor="middle" font-family="Trebuchet MS, Comic Sans MS, sans-serif" font-size="30" font-weight="700" fill="#3f5f7d">
+    Imagen disponible pronto
+  </text>
+</svg>

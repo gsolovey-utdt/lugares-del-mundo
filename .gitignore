@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+
+# Editores / SO
+.DS_Store
+Thumbs.db
+
+# Claude Code internals
+.claude/
+
+# Archivos temporales
+*.tmp.*
+
+# Pipeline de imágenes (candidatos descargados de Pexels — no se commitean)
+images/_candidates/
+scripts/selections.json
+
+# Claves / secretos (la PEXELS_API_KEY va en variable de entorno, nunca en el repo)
+.env
+*.key

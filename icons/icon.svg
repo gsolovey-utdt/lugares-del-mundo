@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="80" fill="#1a6a9f"/>
+  <!-- Plato -->
+  <ellipse cx="256" cy="295" rx="165" ry="52" fill="#fff8e7" stroke="#1a1a1a" stroke-width="14"/>
+  <path d="M91 295 Q91 405 256 415 Q421 405 421 295Z" fill="#ff8c42" stroke="#1a1a1a" stroke-width="14"/>
+  <ellipse cx="256" cy="295" rx="165" ry="52" fill="#fff8e7" stroke="#1a1a1a" stroke-width="14"/>
+  <!-- Pie del plato -->
+  <rect x="220" y="356" width="72" height="58" rx="8" fill="#fff8e7" stroke="#1a1a1a" stroke-width="10"/>
+  <rect x="178" y="404" width="156" height="22" rx="11" fill="#fff8e7" stroke="#1a1a1a" stroke-width="10"/>
+  <!-- Vapor x3 -->
+  <path d="M176 248 Q188 218 176 194" stroke="rgba(255,255,255,0.75)" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M256 228 Q268 198 256 174" stroke="rgba(255,255,255,0.75)" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M336 248 Q348 218 336 194" stroke="rgba(255,255,255,0.75)" stroke-width="9" fill="none" stroke-linecap="round"/>
+</svg>
